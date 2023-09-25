@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th=”http://www.thymeleaf.org” lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>글 수정</title>
+  <link rel="stylesheet" th:href="@{/css/updatecontent.css}" type="text/css">
+  <script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/classic/ckeditor.js"></script>
+</head>
+
+<body>
+    <header>
+      <img src="/images/logo-none.png" onclick="location.href='/boardlist'" alt="logo">
+      <h1>글쓰기</h1>
+    </header>
+
+    <main>
+      <form th:action="@{/boardlist/updatecontent(uid=${detailpage.uid})}" method="post">
+        <input type="text" id="title" name="title" th:value="${detailpage.title}"><br/>
+        <textarea id="editor" name="content">[[${detailpage.content}]]</textarea><br/>
+        <div id="floor">
+          <input type="text" id="writer" name="writer" th:value="${detailpage.writer}"><br/>
+          <div>
+            <button id="reset" type="reset" onclick="location.href='/boardlist'">취소</button>
+            <button id="submit" type="submit">작성</button>
+          </div>
+        </div>
+      </form>
+    </main>
+
+    <script class="ck-content">
+                ClassicEditor
+                    .create(document.querySelector('#editor'))
+                    .catch(error => {
+                        console.error(error);
+                    });
+    </script>
+
+</body>
+</html>

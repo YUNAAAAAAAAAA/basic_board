@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th=”http://www.thymeleaf.org” lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}" type="text/css">
+</head>
+
+<body>
+    <header>
+        <img src="/images/logo-none.png" alt="logo" onclick="location.href='/index'">
+    </header>
+
+    <main>
+        <h1>로그인</h1>
+        <form action="login" method="post">
+            <div id="enter">
+                <input type = "text" name="email" placeholder="email"></br>
+                <input type = "password" name="pw" placeholder="pw">
+            </div>
+            <button type="submit">로그인</button>
+            <div id="join">
+                <a th:href="@{/join}"><p>회원가입</p></a>
+                <p>아이디/비밀번호 찾기</p>
+            </div>
+        </form>
+    </main>
+
+</body>
+</html>

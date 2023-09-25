@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th=”http://www.thymeleaf.org” lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>상세페이지</title>
+    <link rel="stylesheet" th:href="@{/css/detailpage.css}" type="text/css">
+</head>
+
+<body>
+
+    <header>
+        <img src="/images/logo-none.png" alt="logo" onclick="location.href='/index'">
+    </header>
+
+    <main>
+        <div id="title" th:text="${detailpage.title}"></div>
+        <div id="writer" th:text="${detailpage.writer}"></div>
+        <div id="content">[(${detailpage.content})]</div>
+        <div id="button">
+            <a th:href="@{/boardlist}" id="backtolist">◁목록으로</a>
+            <div id="button2">
+                <a th:href="@{/boardlist/updatecontent(uid=${detailpage.uid})}"><button id="update" type="button">수정</button></a>
+                <a th:href="@{/deletecontent(uid=${detailpage.uid})}"><button id="delete" type="button">삭제</button></a>
+            </div>
+
+        </div>
+    </main>
+    <footer>
+        YUNA (2023.08.10~)
+    </footer>
+
+</body>
+</html>

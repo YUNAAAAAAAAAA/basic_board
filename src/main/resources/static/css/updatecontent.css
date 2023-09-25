@@ -1,0 +1,133 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, sub, sup, tt, var,
+b, u, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*-----------reset conde--------------*/
+body{
+    margin: 0 auto;
+    max-width: 1000px;
+}
+header{
+    display: flex;
+    margin-left: 123px;
+    align-items: center;
+    margin-bottom: 80px;
+    margin-top: 50px;
+}
+
+img{
+    width: 113px;
+    height: 118px;
+}
+h1{
+    font-size: 40px;
+    font-weight: 400;
+    margin-left: 208px;
+}
+/*   header    */
+
+#title{
+    width: 986px;
+    height: 51px;
+    border-radius: 20px;
+    border: 5px solid black;
+    font-size: 16px;
+    text-indent: 16px;
+    margin-bottom: 40px;
+}
+
+
+#floor{
+    display: flex;
+    width: 1000px;
+    justify-content: space-between;
+    margin-top: 32px;
+}
+
+#writer{
+    width: 281px;
+    height: 33px;
+    border-radius: 20px;
+    border: 5px solid black;
+    font-size: 14px;
+    text-indent: 16px;
+}
+button{
+	width: 70px;
+	height: 30px;
+	border-radius: 20px;
+	background-color: black;
+	color: white;
+	font-size: 16px;
+	font-weight: 400;
+}
+button:hover{
+	text-decoration: underline;
+}
+button:active{
+    transform: translateY(4px);
+}
+#reset{
+    margin-right: 16px;
+}
+/*main*/
+
+.ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
+    height: 397px;
+}
+.ck.ck-editor{
+    border: 5px solid black !important;
+    border-radius: 20px;
+}
+
+.ck-rounded-corners .ck.ck-editor__main>.ck-editor__editable, .ck.ck-editor__main>.ck-editor__editable.ck-rounded-corners{
+    height: 400px;
+}
+
+.ck .ck-toolbar{
+    border-radius: 16px 16px 0px 0px !important;
+}
+
+.ck .ck-content{
+    border-radius: 0px 0px 16px 16px !important;
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="spring.firstproject.member.MemberMapper">
+
+<!-- 회원가입 join -->
+    <insert id="joinMember">
+        INSERT INTO member_tb (email, pw, nickname)
+        VALUES (#{email}, #{pw}, #{nickname})
+    </insert>
+<!-- 회원가입 join -->
+
+
+
+<!-- nickname 중복체크 -->
+    <select id="nicknameDuplication" resultType="int">
+        SELECT count(*) FROM member_tb
+        WHERE nickname = #{nickname}
+    </select>
+<!-- nickname 중복체크 -->
+
+<!-- email 중복체크 -->
+    <select id="emailDuplication" resultType="int">
+        SELECT count(*) FROM member_tb
+        WHERE email = #{email}
+    </select>
+<!-- email 중복체크 -->
+
+
+
+<!-- 로그인 login -->
+    <select id="login" resultType="spring.firstproject.member.MemberDto">
+        SELECT * FROM member_tb
+        WHERE email = #{email} AND pw = #{pw}
+    </select>
+<!-- 로그인 login -->
+
+
+</mapper>

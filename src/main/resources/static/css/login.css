@@ -1,0 +1,117 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*-----------reset conde--------------*/
+
+header{
+    margin: 0 auto;
+    text-align: center;
+}
+img{
+    width: 104px;
+    height: 114px;
+    margin-bottom: 32px;
+    margin-top:120px;
+}
+
+
+main{
+    width: 500px;
+    height: 380px;
+    box-shadow: 10px 10px 17px 0px black;
+    border-radius: 20px;
+    text-align: center;
+    margin: 0 auto;
+}
+h1{
+   font-size: 40px;
+   padding-top: 55px;
+   margin-bottom: 35px;
+}
+input{
+    width: 300px;
+    height: 30px;
+    border-radius: 12px;
+    border: 1px solid black;
+    text-indent: 22px;
+}
+input:first-of-type{
+    margin-bottom: 22px;
+}
+input:last-of-type{
+    margin-bottom: 36px;
+}
+button{
+    width: 64px;
+    height: 27px;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    margin-bottom: 16px;
+}
+button:hover{
+	text-decoration: underline;
+}
+button:active{
+    transform: translateY(2px);
+}
+
+#join{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+a{
+    text-decoration: none;
+}
+
+p{
+    color: gray;
+    font-size: 14px;
+}
+p:first-of-type{
+    border-right: 1px solid gray;
+    padding-right: 8px;
+}
