@@ -16,7 +16,7 @@
             <input type="text" id="title" name="title" placeholder="제목"><br/>
             <textarea id="editor" name="content"></textarea><br/>
             <div id="floor">
-                <input type="text" id="writer" name="writer" placeholder="작성자"><br/>
+                <input type="text" id="writer" name="writer" th:value="${member.nickname}"><br/>
                 <div>
                     <button id="reset" type="reset" onclick="location.href='/boardlist'">취소</button>
                     <button id="submit" type="submit">작성</button>
@@ -24,7 +24,6 @@
             </div>
         </form>
     </main>
-
     <script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/classic/ckeditor.js"></script>
     <script th:src="@{/js/board.js}" type="text/javascript"></script>
 

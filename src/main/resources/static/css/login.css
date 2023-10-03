@@ -110,8 +110,9 @@ a{
 p{
     color: gray;
     font-size: 14px;
-}
-p:first-of-type{
     border-right: 1px solid gray;
     padding-right: 8px;
+}
+#join > p:last-of-type{
+    border-right : none;
 }

@@ -55,6 +55,16 @@ public class MemberController {
 
 
 //로그아웃 Logout
+
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request){
+        HttpSession session = request.getSession(false);
+        if(session != null){
+            session.invalidate();
+        }
+        return "redirect:/";
+    }
+
 //로그아웃 Logout
 
 

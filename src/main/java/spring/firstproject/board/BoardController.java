@@ -44,17 +44,25 @@ public class BoardController {
 
 //글 쓰기 페이지 Board
     @GetMapping("/board")
-    public String redirectBoard(@ModelAttribute BoardDto boardDto){
+    public String redirectBoard(@SessionAttribute(name = "member", required = false) MemberDto member,@ModelAttribute BoardDto boardDto,Model model){
 
+        if(member == null){
+            return "login";
+        }
 
+        model.addAttribute("member",member);
         return "board";
     }
 
     @PostMapping("/board")
-    public String BoardController(@Validated @ModelAttribute BoardDto boardDto, BindingResult bindingResult){
+    public String BoardController(@SessionAttribute(name = "member", required = false) MemberDto member, Model model, @Validated @ModelAttribute BoardDto boardDto, BindingResult bindingResult){
 
         if(bindingResult.hasErrors()){   //validate
             return "board";
+        }
+
+        if(member != null){
+            model.addAttribute("member", member);
         }
 
         boardService.InsertBoard(boardDto);
@@ -65,9 +73,13 @@ public class BoardController {
 
 
 //게시글 상세 DetailPage
-    @RequestMapping("/boardlist/detailpage")
-    public String DetailPageController(Model model,@RequestParam int uid){
+    @GetMapping("/boardlist/detailpage")
+    public String DetailPageController(@SessionAttribute(name = "member", required = false) MemberDto member, Model model,@RequestParam int uid){
         model.addAttribute("detailpage", boardService.detailPage(uid));
+
+        if(member != null){
+            model.addAttribute("member",member);
+        }
         return "detailpage";
     }
 //게시글 상세 DetailPage
