@@ -110,11 +110,9 @@ public class BoardController {
         boardService.updateContent(detailPageDto);
         model.addAttribute("updatecontent", boardService.updateContent(detailPageDto));
 
-
         redirectAttributes.addAttribute("uid",detailPageDto.getUid());
         return "redirect:/boardlist/detailpage";
     }
-
 
 //글 수정 UpdateContent
 }

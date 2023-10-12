@@ -10,10 +10,11 @@
     <div id="mainpage">
         <img src="images/logo-none.png" alt="logo">
         <div>
-            <a th:href="@{/login}"><button type="button">로그인</button></a>
+            <a th:href="@{/login}"><button type="button" th:if="${session.member == null}">로그인</button></a>
             <br/>
             <button type="button" onclick="location.href='/boardlist'">게시판</button>
         </div>
     </div>
 </body>
+
 </html>

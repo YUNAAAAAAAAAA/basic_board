@@ -24,12 +24,12 @@ CREATE TABLE IF NOT EXISTS `board_tb` (
   `uid` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL,
-  `writer` varchar(255) NOT NULL DEFAULT '아무개',
+  `writer` varchar(255) NOT NULL,
   `regdate` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=184 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=190 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- 테이블 데이터 board.board_tb:~165 rows (대략적) 내보내기
+-- 테이블 데이터 board.board_tb:~166 rows (대략적) 내보내기
 INSERT INTO `board_tb` (`uid`, `title`, `content`, `writer`, `regdate`) VALUES
 	(1, '제목1', '<p>내용1</p>', '아무개', '2023-08-10 14:56:39'),
 	(2, '제목2', '내용2', '아무개', '2023-08-10 14:56:51'),
@@ -195,7 +195,10 @@ INSERT INTO `board_tb` (`uid`, `title`, `content`, `writer`, `regdate`) VALUES
 	(171, '제목162', '<p>내용162</p>', '아무개', '2023-08-22 17:22:32'),
 	(172, '제목163', '<p>내용163</p>', '아무개', '2023-08-24 13:06:47'),
 	(182, 'test', '<p>test</p>', 'test', '2023-09-19 15:09:03'),
-	(183, '1', '<p>11</p>', '12', '2023-09-19 15:22:58');
+	(183, '1', '<p>11</p>', '12', '2023-09-19 15:22:58'),
+	(184, '1234', '<p>1234</p>', '아무개', '2023-10-02 15:52:57'),
+	(185, '1234', '<p>1234</p>', '아무개', '2023-10-02 15:53:18'),
+	(186, '1212', '<p>121212</p>', 'test', '2023-10-03 16:09:15');
 
 -- 테이블 board.member_tb 구조 내보내기
 CREATE TABLE IF NOT EXISTS `member_tb` (
@@ -205,11 +208,14 @@ CREATE TABLE IF NOT EXISTS `member_tb` (
   `nickname` varchar(255) NOT NULL,
   `createdate` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- 테이블 데이터 board.member_tb:~2 rows (대략적) 내보내기
+-- 테이블 데이터 board.member_tb:~4 rows (대략적) 내보내기
 INSERT INTO `member_tb` (`uid`, `email`, `pw`, `nickname`, `createdate`) VALUES
-	(61, 'test@gmail.com', '12345678', 'test', '2023-09-21 12:15:56');
+	(61, 'test@gmail.com', '12341234', 'test', '2023-09-21 12:15:56'),
+	(63, 'test1@gmail.com', '12341234', 'test1', '2023-10-03 16:02:21'),
+	(64, 'test@gmail.lom', '12341234', 'test3', '2023-10-06 09:52:18'),
+	(66, 'none@gmail.com', '12341234', '아무개', '2023-10-11 10:44:34');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

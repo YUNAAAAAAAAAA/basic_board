@@ -82,6 +82,7 @@ input:first-of-type{
 input:last-of-type{
     margin-bottom: 36px;
 }
+
 button{
     width: 64px;
     height: 27px;

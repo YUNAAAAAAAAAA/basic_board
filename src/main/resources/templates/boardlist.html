@@ -4,83 +4,82 @@
     <meta charset="UTF-8">
     <title>게시판</title>
     <link rel="stylesheet" th:href="@{/css/boardlist.css}" type="text/css">
-
 </head>
 
 <body>
-<header>
-    <img src="/images/logo-none.png" alt="logo" onclick="location.href='/index'">
-    <h1>게시판</h1>
-    <h2 id="loginment" th:if="${session.member != null}" th:text="|${member.nickname} 님 환영합니다!|"></h2>
-    <a th:href="@{/logout}" id="logout" th:if="${session.member != null}" th:onclick="logout()">로그아웃</a>
-</header>
-<main>
-    <ul id="listtitle">
-        <li style="width: 230px">No.</li>
-        <li style="width: 568px">Title</li>
-        <li style="width: 284px">Writer</li>
-        <li style="width: 98px">Date</li>
-    </ul>
-    <div>
-        <ul class="list" th:each="listContent:${boardlist}">
-            <li style="width: 169px" th:text="${listContent.uid}"></li>
-            <a th:href="@{/boardlist/detailpage(uid=${listContent.uid})}">
-                <li style="width: 642px" th:text="${listContent.title}"></li>
-            </a>
-            <li style="width: 203px" th:text="${listContent.writer}"></li>
-            <li style="width: 186px" th:text="${listContent.regdate}"></li>
+    <header>
+        <img src="/images/logo-none.png" alt="logo" onclick="location.href='/index'">
+        <h1>게시판</h1>
+        <h2 id="loginment" th:if="${session.member != null}" th:text="|${member.nickname} 님 환영합니다!|"></h2>
+        <a th:href="@{/logout}" id="logout" th:if="${session.member != null}" th:onclick="logout()">로그아웃</a>
+    </header>
+    <main>
+        <ul id="listtitle">
+            <li style="width: 230px">No.</li>
+            <li style="width: 568px">Title</li>
+            <li style="width: 284px">Writer</li>
+            <li style="width: 98px">Date</li>
         </ul>
-    </div>
-    <div id="floor"></div>
-
-    <div id="page">
-        <div id="paging">
-            <th:block th:if="${pagingDto.page!=1}">
-                <a th:href="@{/boardlist(page=${pagingDto.page-1})}">◀</a>
-            </th:block>
-            <th:block th:each="paging:${#numbers.sequence(pagingDto.startPage,pagingDto.lastPage)}"
-                      th:if="${paging<=pagingDto.endPage}">
-                <a th:href="@{/boardlist(page=${paging})}"><p th:text="${paging}"
-                                                              th:classappend="${paging==pagingDto.page} ? 'active' : ''"></p>
+        <div>
+            <ul class="list" th:each="listContent:${boardlist}">
+                <li style="width: 169px" th:text="${listContent.uid}"></li>
+                <a th:href="@{/boardlist/detailpage(uid=${listContent.uid})}">
+                    <li style="width: 642px" th:text="${listContent.title}"></li>
                 </a>
-            </th:block>
-
-            <th:block th:if="${pagingDto.page!=pagingDto.endPage}">
-                <a th:href="@{/boardlist(page=${pagingDto.page+1})}">▶</a>
-            </th:block>
+                <li style="width: 203px" th:text="${listContent.writer}"></li>
+                <li style="width: 186px" th:text="${listContent.regdate}"></li>
+            </ul>
         </div>
-        <button type="button" id="writebtn" th:onclick="writeBoard()">글쓰기</button>
-    </div>
-    <section>
-        욕설이나 비하, 비방글은 예고없이 삭제처리 됩니다.
-    </section>
-</main>
-<footer>
-    YUNA (2023.08.10~)
-</footer>
+        <div id="floor"></div>
 
-<script th:inline="javascript">
-     function writeBoard(){
-            let userInfo = /*[[${session.member}]]*/;
-            if(userInfo != null){
-                location.href="/board";
-            }else{
-                alert("로그인 후 사용 가능합니다.");
-                location.href="/login";
+        <div id="page">
+            <div id="paging">
+                <th:block th:if="${pagingDto.page!=1}">
+                    <a th:href="@{/boardlist(page=${pagingDto.page-1})}">◀</a>
+                </th:block>
+                <th:block th:each="paging:${#numbers.sequence(pagingDto.startPage,pagingDto.lastPage)}"
+                          th:if="${paging<=pagingDto.endPage}">
+                    <a th:href="@{/boardlist(page=${paging})}">
+                        <p th:text="${paging}" th:classappend="${paging==pagingDto.page} ? 'active' : ''"></p>
+                    </a>
+                </th:block>
+
+                <th:block th:if="${pagingDto.page!=pagingDto.endPage}">
+                    <a th:href="@{/boardlist(page=${pagingDto.page+1})}">▶</a>
+                </th:block>
+            </div>
+            <button type="button" id="writebtn" th:onclick="writeBoard()">글쓰기</button>
+        </div>
+        <section>
+            욕설이나 비하, 비방글은 예고없이 삭제처리 됩니다.
+        </section>
+    </main>
+    <footer>
+        YUNA (2023.08.10~)
+    </footer>
+
+    <script th:inline="javascript">
+         function writeBoard(){
+                let userInfo = /*[[${session.member}]]*/;
+                if(userInfo != null){
+                    location.href="/board";
+                }else{
+                    alert("로그인 후 사용 가능합니다.");
+                    location.href="/login";
+                }
             }
-        }
 
-     function logout(){
-        let logout = document.querySelector("#logout");
-        let login = /*[[${session.member}]]*/;
+         function logout(){
+            let logout = document.querySelector("#logout");
+            let login = /*[[${session.member}]]*/;
 
-        if(login != null){
-            logout.style.display='block';
-        }else{
-            logout.style.display='none';
-        }
-     }
-</script>
+            if(login != null){
+                logout.style.display='block';
+            }else{
+                logout.style.display='none';
+            }
+         }
+    </script>
 
 </body>
 </html>

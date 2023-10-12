@@ -26,8 +26,11 @@ public class MemberController {
 
 //로그인 LoginMember
     @GetMapping("/login")
-    public String LoginMember(){
+    public String LoginMember(@SessionAttribute(name = "member", required = false) MemberDto member){
 
+        if(member != null){
+            return "redirect:boardlist";
+        }
         return "login";
     }
 
@@ -40,8 +43,9 @@ public class MemberController {
         MemberDto member = memberService.login(memberDto);
 
         if(member==null){                         //로그인 실패
-            //bindingResult에 오류 담기
-            return "redirect:login";//로그인 페이지로 반환
+            //model에 오류 담기
+            model.addAttribute("loginError",true);
+            return "login";//로그인 페이지로 반환
         }
 
         //Session 생성하기
@@ -51,6 +55,8 @@ public class MemberController {
         model.addAttribute("member",member);
         return "redirect:boardlist";
     }
+
+
 //로그인 LoginMember
 
 
@@ -109,10 +115,5 @@ public class MemberController {
     }
 
 //회원가입 JoinMember
-
-
-
-
-
 
 }

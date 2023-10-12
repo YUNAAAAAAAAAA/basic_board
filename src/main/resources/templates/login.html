@@ -7,24 +7,33 @@
 </head>
 
 <body>
-    <header>
-        <img src="/images/logo-none.png" alt="logo" onclick="location.href='/index'">
-    </header>
+<header>
+    <img src="/images/logo-none.png" alt="logo" onclick="location.href='/index'">
+</header>
 
-    <main>
-        <h1>로그인</h1>
-        <form action="login" method="post">
-            <div id="enter">
-                <input type = "text" name="email" placeholder="email"></br>
-                <input type = "password" name="pw" placeholder="pw">
-            </div>
-            <button type="submit">로그인</button>
-            <div id="join">
-                <a th:href="@{/join}"><p>회원가입</p></a>
-                <p>아이디/비밀번호 찾기</p>
-            </div>
-        </form>
-    </main>
+<main>
+    <h1>로그인</h1>
+    <form action="login" method="post" id="form" onsubmit="logincheck()">
+        <div id="enter">
+            <input type="text" name="email" placeholder="email" id="email"><br>
+            <input type="password" name="pw" placeholder="pw" id="pw"><br>
+        </div>
+        <button>로그인</button>
+        <div id="join">
+            <a th:href="@{/join}"><p>회원가입</p></a>
+            <p>아이디/비밀번호 찾기</p>
+        </div>
+    </form>
+</main>
+<script th:inline="javascript">
+    let loginError = /*[[${loginError}]]*/;
+    if(loginError){             //login이 실패 했다는 error가 있으면 아래 코드 실행
+        alert("이메일 또는 비밀번호를 확인해주세요.");
+    }
+
+
+
+</script>
 
 </body>
 </html>
